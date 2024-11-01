@@ -4,11 +4,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
-SwaggerConfiguration.AddSwaggerConfiguration(builder.Services);
-DependencyInjectionConfiguration.AddDependencyInjection(builder.Services);
+builder.Services.AddCorsConfiguration();
+builder.Services.AddSwaggerConfiguration();
+builder.Services.AddDependencyInjection();
+
 var app = builder.Build();
 
-SwaggerConfiguration.UseSwaggerConfiguration(app);
+app.UseCorsConfiguration();
+app.UseSwaggerConfiguration();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

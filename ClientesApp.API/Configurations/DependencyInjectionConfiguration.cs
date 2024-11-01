@@ -5,9 +5,9 @@ using ClientesApp.Infra.Data.Repositories;
 
 namespace ClientesApp.API.Configurations
 {
-    public class DependencyInjectionConfiguration
+    public static class DependencyInjectionConfiguration
     {
-        public static void AddDependencyInjection(IServiceCollection services)
+        public static void AddDependencyInjection(this IServiceCollection services)
         {
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IClienteRepository, ClienteRepository>();

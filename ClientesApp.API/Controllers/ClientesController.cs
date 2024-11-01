@@ -1,9 +1,7 @@
 ﻿using ClientesApp.Domain.Dtos;
 using ClientesApp.Domain.Interfaces.Services;
 using FluentValidation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace ClientesApp.API.Controllers
 {
@@ -28,6 +26,9 @@ namespace ClientesApp.API.Controllers
             try
             {
                 var response = _clienteService.Incluir(dto);
+
+                Thread.Sleep(2000);
+
                 return StatusCode(201, response);
             }
             catch(ValidationException e)
@@ -60,6 +61,9 @@ namespace ClientesApp.API.Controllers
             try
             {
                 var response = _clienteService.Alterar(id, dto);
+
+                Thread.Sleep(2000);
+
                 return StatusCode(200, response);
             }
             catch (ValidationException e)
@@ -92,6 +96,9 @@ namespace ClientesApp.API.Controllers
             try
             {
                 var response = _clienteService.Excluir(id);
+
+                Thread.Sleep(2000);
+
                 return StatusCode(200, response);
             }
             catch (ApplicationException e)
@@ -114,6 +121,8 @@ namespace ClientesApp.API.Controllers
             try
             {
                 var response = _clienteService.Consultar();
+
+                Thread.Sleep(2000);
 
                 if (response.Any())
                 {
@@ -140,6 +149,9 @@ namespace ClientesApp.API.Controllers
             try
             {
                 var response = _clienteService.ObterPorId(id);
+
+                Thread.Sleep(2000);
+
                 return StatusCode(200, response);
             }
             catch (ApplicationException e)

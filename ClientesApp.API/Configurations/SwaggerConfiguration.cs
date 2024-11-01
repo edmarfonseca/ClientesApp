@@ -5,12 +5,12 @@ namespace ClientesApp.API.Configurations
     /// <summary>
     /// Classe para configuração da biblioteca do Swagger
     /// </summary>
-    public class SwaggerConfiguration
+    public static class SwaggerConfiguration
     {
         /// <summary>
         /// Método para definir as configurações / preferências do Swagger
         /// </summary>
-        public static void AddSwaggerConfiguration(IServiceCollection services)
+        public static void AddSwaggerConfiguration(this IServiceCollection services)
         {
             services.AddEndpointsApiExplorer();
 
@@ -40,7 +40,7 @@ namespace ClientesApp.API.Configurations
         /// <summary>
         /// Método para executar e aplicar as configurações do Swagger
         /// </summary>
-        public static void UseSwaggerConfiguration(IApplicationBuilder app)
+        public static void UseSwaggerConfiguration(this IApplicationBuilder app)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>
